@@ -288,8 +288,10 @@ int main(int argc, char **argv)
             for (i=0; nr_loops==0 || i<nr_loops; i++) {
                 te=worker(asize, a, b, testno, block_size);
                 te_sum+=te;
-                printf("%d\t", i);
-                printout(te, mt, testno);
+                if(!quiet){
+                    printf("%d\t", i);
+                    printout(te, mt, testno);
+                }
             }
             if(showavg) {
                 printf("AVG\t");
